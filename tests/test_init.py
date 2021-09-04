@@ -9,7 +9,7 @@ import boto3
 from moto import mock_s3
 
 # Package imports
-from target_s3_jsonl import (
+from target_s3_json import (
     sys,
     Decimal,
     datetime,

@@ -4,7 +4,7 @@ import backoff
 import boto3
 from botocore.exceptions import ClientError
 
-from target_s3_jsonl.logger import get_logger
+from target_s3_json.logger import get_logger
 
 LOGGER = get_logger()
 
@@ -71,5 +71,6 @@ def upload_file(s3_client, filename, bucket, s3_key,
             "Expected: 'none' or 'KMS'"
             .format(encryption_type))
 
-    LOGGER.info("Uploading {} to bucket {} at {}{}".format(filename, bucket, s3_key, encryption_desc))
+    # NOTE: potential optinisation. Apply the appropriate compression, and output conversion json or jsonl. Upload it with `upload_fileobj`
     s3_client.upload_file(filename, bucket, s3_key, ExtraArgs=encryption_args)
+    LOGGER.info('"{}" uploaded to bucket {} as {}{}'.format(filename, bucket, s3_key, encryption_desc))

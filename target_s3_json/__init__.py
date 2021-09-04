@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 
 import argparse
 import gzip
@@ -14,8 +14,8 @@ import datetime
 from jsonschema import Draft4Validator, FormatChecker
 from decimal import Decimal
 
-from target_s3_jsonl import s3
-from target_s3_jsonl.logger import get_logger
+from target_s3_json.s3 import create_client, upload_file
+from target_s3_json.logger import get_logger
 
 LOGGER = get_logger()
 
@@ -121,10 +121,10 @@ def save_file(file_data, open_func):
 
 
 def upload_files(file_data, config):
-    s3_client = s3.create_client(config)
+    s3_client = create_client(config)
     for stream, file_info in file_data.items():
         if file_info['file_name'].exists():
-            s3.upload_file(
+            upload_file(
                 s3_client,
                 str(file_info['file_name']),
                 config.get('s3_bucket'),
@@ -271,6 +271,8 @@ def main():
     missing_params = {'s3_bucket'} - set(config.keys())
     if missing_params:
         raise Exception('Config is missing required keys: {}'.format(missing_params))
+
+    # NOTE: expand config with compression metadata
 
     state, file_data = persist_lines(sys.stdin, config)
 

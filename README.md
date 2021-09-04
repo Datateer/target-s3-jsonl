@@ -1,18 +1,18 @@
-# target-s3-jsonl
+# target-s3-json
 
-![GitHub - License](https://img.shields.io/github/license/ome9ax/target-s3-jsonl)
-[![Python package builder](https://github.com/ome9ax/target-s3-jsonl/workflows/Python%20package/badge.svg)](https://github.com/ome9ax/target-s3-jsonl)
-[![codecov](https://codecov.io/gh/ome9ax/target-s3-jsonl/branch/main/graph/badge.svg?token=KV0cn4jKs2)](https://codecov.io/gh/ome9ax/target-s3-jsonl)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/target-s3-jsonl.svg)](https://pypi.org/project/target-s3-jsonl/)
-[![PyPI version](https://badge.fury.io/py/target-s3-jsonl.svg)](https://badge.fury.io/py/target-s3-jsonl)
-[![PyPi project installs](https://img.shields.io/pypi/dm/target-s3-jsonl.svg?maxAge=2592000&label=installs&color=%2327B1FF)](https://pypi.org/project/target-s3-jsonl)
+![GitHub - License](https://img.shields.io/github/license/ome9ax/target-s3-json)
+[![Python package builder](https://github.com/ome9ax/target-s3-json/workflows/Python%20package/badge.svg)](https://github.com/ome9ax/target-s3-json)
+[![codecov](https://codecov.io/gh/ome9ax/target-s3-json/branch/main/graph/badge.svg?token=KV0cn4jKs2)](https://codecov.io/gh/ome9ax/target-s3-json)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/target-s3-json.svg)](https://pypi.org/project/target-s3-json/)
+[![PyPI version](https://badge.fury.io/py/target-s3-json.svg)](https://badge.fury.io/py/target-s3-json)
+[![PyPi project installs](https://img.shields.io/pypi/dm/target-s3-json.svg?maxAge=2592000&label=installs&color=%2327B1FF)](https://pypi.org/project/target-s3-json)
 
 [Singer](https://www.singer.io/) target that uploads loads data to S3 in JSONL format
 following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md).
 
 ## How to use it
 
-`target-s3-jsonl` is a [Singer](https://singer.io) Target which intend to work with regular [Singer](https://singer.io) Tap. It take the output of the tap and export it as a [JSON Lines](http://jsonlines.org/) files.
+`target-s3-json` is a [Singer](https://singer.io) Target which intend to work with regular [Singer](https://singer.io) Tap. It take the output of the tap and export it as a [JSON Lines](http://jsonlines.org/) files.
 
 ## Install
 
@@ -27,7 +27,7 @@ It's recommended to use a virtualenv:
 python -m venv venv
 . venv/bin/activate
 pip install --upgrade pip
-pip install target-s3-jsonl
+pip install target-s3-json
 ```
 
 ### Head
@@ -35,14 +35,14 @@ pip install target-s3-jsonl
 python -m venv venv
 . venv/bin/activate
 pip install --upgrade pip
-pip install --upgrade https://github.com/ome9ax/target-s3-jsonl/archive/main.tar.gz
+pip install --upgrade https://github.com/ome9ax/target-s3-json/archive/main.tar.gz
 ```
 
 ### Isolated virtual environment
 ```bash
-python -m venv ~/.virtualenvs/target-s3-jsonl
-source ~/.virtualenvs/target-s3-jsonl/bin/activate
-pip install target-s3-jsonl
+python -m venv ~/.virtualenvs/target-s3-json
+source ~/.virtualenvs/target-s3-json/bin/activate
+pip install target-s3-json
 deactivate
 ```
 
@@ -50,7 +50,7 @@ deactivate
 
 Like any other target that's following the singer specificiation:
 
-`some-singer-tap | target-s3-jsonl --config [config.json]`
+`some-singer-tap | target-s3-json --config [config.json]`
 
 It's reading incoming messages from STDIN and using the properites in `config.json` to upload data into Postgres.
 

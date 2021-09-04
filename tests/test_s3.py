@@ -11,7 +11,7 @@ import boto3
 from moto import mock_s3
 
 # Package imports
-from target_s3_jsonl.s3 import create_client, upload_file, log_backoff_attempt
+from target_s3_json.s3 import create_client, upload_file, log_backoff_attempt
 
 
 @fixture
